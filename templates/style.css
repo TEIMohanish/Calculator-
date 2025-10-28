@@ -1,0 +1,65 @@
+/* Jungle Adventure Theme – ToonEncodes Runner */
+
+body {
+  background: radial-gradient(circle at center, #062b1e 0%, #02140b 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Add animated jungle background layers */
+#game {
+  background: linear-gradient(180deg, #0a3d1b 0%, #02140b 100%);
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+  border: 2px solid rgba(255,255,255,0.06);
+}
+
+/* Subtle parallax foliage */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://i.ibb.co/ZK8RhWf/foliage.png') repeat-x;
+  background-size: contain;
+  opacity: 0.1;
+  animation: sway 60s linear infinite;
+  pointer-events: none;
+}
+body::after {
+  background: url('https://i.ibb.co/GH4F60d/foliage2.png') repeat-x;
+  background-size: contain;
+  opacity: 0.08;
+  animation: sway 100s linear infinite reverse;
+}
+
+@keyframes sway {
+  0% { background-position: 0 0; }
+  100% { background-position: 2000px 0; }
+}
+
+/* Button glow hover effects */
+button.primary {
+  transition: all 0.2s ease;
+}
+button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255,126,179,0.4);
+}
+
+/* Modal animation */
+.overlay {
+  animation: fadeIn 0.4s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Developer section glow */
+.dev-block img {
+  box-shadow: 0 0 10px rgba(255,255,255,0.06);
+  transition: transform 0.4s ease;
+}
+.dev-block img:hover {
+  transform: scale(1.08);
+}

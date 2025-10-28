@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profit & Discount Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      padding: 40px 50px;
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-weight: 700;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    input:focus {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #ff758c, #ff7eb3);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .result {
+      margin-top: 25px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: left;
+    }
+
+    .result h2 {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .result p {
+      margin: 5px 0;
+      color: #e2e2e2;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.8rem;
+      color: #fff;
+      opacity: 0.8;
+      letter-spacing: 0.5px;
+    }
+
+    footer span {
+      color: #ff7eb3;
+      font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💸 Profit & Discount Calculator</h1>
+    <form method="POST">
+      <label>Cost Price (₹)</label>
+      <input type="number" name="cost_price" step="0.01" required>
+
+      <label>Selling Price (₹)</label>
+      <input type="number" name="selling_price" step="0.01" required>
+
+      <label>Discount (%)</label>
+      <input type="number" name="discount" step="0.1" value="0">
+
+      <button type="submit">✨ Calculate Now</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+      <h2>📊 Result Summary</h2>
+      <p><strong>Final Price (after discount):</strong> ₹{{ result.final_price }}</p>
+      <p><strong>Profit / Loss:</strong> ₹{{ result.profit }}</p>
+      <p><strong>Profit Percentage:</strong> {{ result.profit_percent }}%</p>
+    </div>
+    {% endif %}
+
+    <footer>
+      Made with 💖 by <span>Mohanish</span>
+    </footer>
+  </div>
+</body>
+</html>
